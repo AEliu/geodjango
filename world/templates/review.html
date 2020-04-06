@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ review.name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">{{ review }} </h1>
+        <p class="lead">{{ review.review_data }}</p>
+        <hr class="my-4">
+        <ul class="list-group">
+        <h2>专家</h2>
+            {% for exp in review.experts.all %}
+                <li class="list-group-item">{{ exp.name }}
+
+                </li>
+            {% endfor %}
+        <h2>部门参会</h2>
+        {% for staff in review.staffs.all %}
+                <li class="list-group-item">{{ staff.name }}
+
+                </li>
+            {% endfor %}
+<h2>项目</h2>
+        {% for p in project_list %}
+                <a href="{% url 'world:project' p.id %}" class="list-group-item list-group-item-action">{{ p.name }}</a>
+            {% endfor %}
+
+        </ul>
+    <h2>会议意见</h2>
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+
+
+
+
+{% endblock %}

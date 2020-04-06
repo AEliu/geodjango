@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ project.name }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">{{ project.name }} </h1>
+        <p class="lead">{{ project.intro }}</p>
+        <hr class="my-4">
+        <a href="{% url 'world:review' project.review.id %} ">{{ project.review }}</a>
+        <p>{{ project.review }}</p>
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-lg" href="#" role="button">Learn more</a>
+    </div>
+
+
+
+
+
+{% endblock %}
